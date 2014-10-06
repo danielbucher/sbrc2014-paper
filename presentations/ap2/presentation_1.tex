@@ -1,0 +1,258 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage[utf8]{inputenc}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[AP2]{Network Security Alerts Detection on Internet Relay Chat Network}
+
+\author{Daniel Bucher} % Your name
+\institute[USP] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Universidade de São Paulo \\ % Your institution for the title page
+\medskip
+\textit{dbucher@ime.usp.br} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview}
+
+\begin{enumerate}
+    \item{Introduction}
+    \item{Objectives}
+    \item{Work Plan}
+    \item{Schedule}
+    \item{Methods}
+    \item{Result Analysis}
+    \item{References}
+\end{enumerate}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Introduction}
+
+The internet provides a large source of information on various areas.
+Tools that automatically collect and analyse those can help decrease the time
+users take to research a topic. This is particularly important when administrat-
+ing computer networks.
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Objectives}
+
+\begin{itemize}
+    \item Develop of a method for extracting network security information from Internet
+        Relay Chat networks.
+    \item Monitor a number of channels on the course of one month and analyse resulting
+        messages to determine if they contain valid information.
+\end{itemize}
+
+Research question:
+
+\textbf{Q1} Does IRC various channels provide valuable information that can help detect
+network security threats?
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Work Plan}
+
+\textbf{Tasks: }
+
+\begin{enumerate}
+    \item{Develop message extractor.}
+    \item{Develop crawlers.}
+    \item{Select channels.}
+    \item{Extract messages.}
+    \item{Improve filters.}
+    \item{Improve grouping module.}
+    \item{Improve the visibility module.}
+    \item{Determine if messages extracted from IRC channels are meaningful.}
+\end{enumerate}
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Schedule}
+\begin{center}
+    \begin{table}
+        \resizebox{\linewidth}{!}{
+        \begin{tabular}{ | c | c | c | c | c | c | c | c | c | c | }
+            \hline
+            \textbf{Task} & \textbf{Week 1} & \textbf{Week 2} & \textbf{Week 3} &  %
+            \textbf{Week 4} & \textbf{Week 5} & \textbf{Week 6} & \textbf{Week 7} & %
+            \textbf{Week 8} & \textbf{Week 9}\\
+            \hline
+            Task 01 & X & X & X &   &   &   &   &   &  \\
+            \hline
+            Task 02 &   & X & X &   &   &   &   &   &  \\
+            \hline
+            Task 03 &   &   & X & X &   &   &   &   &  \\
+            \hline
+            Task 04 &   &   & X & X & X & X & X &   &  \\
+            \hline
+            Task 05 &   &   &   &   & X & X &   &   &  \\
+            \hline
+            Task 06 &   &   &   &   &   & X & X &   &  \\
+            \hline
+            Task 07 &   &   &   &   &   &   & X & X &  \\
+            \hline
+            Task 08 &   &   &   &   &   &   &   & X & X\\
+            \hline
+        \end{tabular}}
+        \caption{Schedule.}
+        \label{table:schedule}
+    \end{table}
+\end{center}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Methods}
+
+\begin{enumerate}
+    \item{Crawling: topic crawler and channel crawler.}
+    \item{Monitoring: bots monitor selected channels.}
+    \item{Filtering.}
+    \item{Similarity grouping.}
+    \item{Visibility.}
+\end{enumerate}
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Result Analysis}
+
+\begin{itemize}
+    \item{Number of important messages.}
+    \item{Manual analysis of messages to verify existance of important information.}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Thank you!}
+
+\Huge{\centerline{Questions?}}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{References}
+\footnotesize{
+\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+\bibitem[Campiolo et. al., 2013]{p1} L. A. F. Santos and R. Campiolo and M. A. Gerosa and D. M. Batista (2013)
+\newblock Detecção de Alertas de Segurança em Redes de Computadores Usando Redes Sociais
+\newblock \emph{31º Simpósio Brasileiro de Redes de Computadores e Sistemas Distribuídos}
+
+\bibitem[Michels, 2013]{p2} M. O. Michels (2013)
+\newblock Real Time Text Analysis on Internet Relay Chat Conversations
+\newblock \emph{Center for Education and Research Information Assurance and Security, Purdue University}
+
+\end{thebibliography}
+}
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
