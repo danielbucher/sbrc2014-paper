@@ -1,0 +1,292 @@
+\documentclass[12pt]{article}
+
+\usepackage{sbc-template}
+\usepackage{graphicx,url}
+%\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{setspace}
+
+\usepackage{tabularx}
+\usepackage{cite}
+
+\begin{document}
+\sloppy
+
+\title{Network Security Alerts Detection on Internet Relay Chat Network}
+
+\author {Daniel C. Bucher\inst{1}}
+
+
+\address{Instituto de Matemática e Estatística -- Universidade de São Paulo (USP)\\
+  Rua do Matão, 1010 - CEP 05508-090 - São Paulo - SP
+  \email{dbucher@ime.usp.br}
+}
+
+
+\maketitle
+\begin{abstract}
+  The internet provides a large source of information on various areas. Tools
+  that automatically collect and analyse those can help decrease the time
+  users take to research a topic.
+  %
+  This is particularly important when administrating computer networks.
+  %
+  The proposal of this work is to determine if the Internet Relay Chat network
+  can provide usefull information concerning network security.
+  %
+  In order to answer that question, we propose the development of a method for
+  extracting network security information from Internet Relay Chat networks.
+  %
+  We will also monitor a number of channels on the course of one month and analyse
+  resulting messages to determine if they contain valid information.
+
+\textbf{Keywords:} Internet Relay Chat, network security, keyword analysis.
+
+\end{abstract}
+
+
+%-----------------------------------------------------------------------------%
+\section{Introduction} \label{sec:intro}
+
+It is important for network administrators to have access to recently
+discovered security threats in order to keep up with measures to keep their
+networks secured. This access also helps organizations that develop security
+solutions to keep their tools up to date with recent threats.
+%
+With that in mind, \cite{campiolo2013} came with a methodology to extract
+posts with relevant information of network security threats on Twitter.
+As a result, they obtained and efficient method that presents only tweets
+with the related topic.
+
+But Twitter is just one of the many sources that the internet provide that
+can contaign usefull information on this area.
+%
+Internet Relay Chat, or IRC, has withstood the test of time and is still
+largely used as a communication channel within software communities and
+hacker groups.
+%
+In that context, we believe that the IRC network can provide valuable
+information concerning network security threats.
+
+The Internet Relay Chat is a application layer protocol\footnote{%
+The original IRC RFC: \url{https://tools.ietf.org/html/rfc1459#section-1.1}}
+that allows a group of users to transfer messages on defined channels.
+%
+Channels are named groups of one or more clients. When a client sends a
+message to a channel, all other clients on the same channel receive that
+message.
+%It was created on the
+lates 1980s and is still
+used today as one of the main, multi-users, chat services \cite{michels2013}.
+%
+IRC is a client-server protocol that uses TCP and optionally, TLS for
+encryption.
+%
+IRC servers can connect to other servers and form an IRC network.
+
+On his master thesis, \cite{michels2013} presented an IRC Data Gathering Tool which
+facilitated real-time analysis of IRC chat messages. His goal was to detect
+criminal activities going on on the IRC network.
+%
+Altough that is not our objective, \cite{michels2013} did prove that is possible
+to analyze in near real-time IRC chat messages.
+%
+In section \ref{sec:methods} we describe a methodology based on both the work
+of \cite{campiolo2013} and \cite{michels2013}.
+
+This paper is divided in five sections. On section \ref{sec:objectives} we
+present the objectives and research question. On section \ref{sec:workplan}
+we present a work plan and a schedule. On section \ref{sec:methods} we present
+both material and method to be used. Section \ref{sec:result} presents how we
+plan to analyse the results obtained.
+
+%-----------------------------------------------------------------------------%
+\section{Objectives} \label{sec:objectives}
+
+The objective to this project is to answer the folowing question:
+
+\begin{description}
+    \item{\textbf{Q1} Does IRC various channels provide valuable information
+        that can help detect network security threats?}
+\end{description}
+
+In order to answer that question, we propose developping an application that
+autommatically detects channels that are candidate to provide information
+in network security threats and extract that information.
+%
+This application will be developed in the form os modules that will be
+incorporated on the framework developt by \cite{campiolo2013}.
+%
+A visualization model will also be avaiable so that interested personnel can
+have acces to that information.
+%
+In section \ref{sec:methods} we present the method to be used to detect and
+extract this messages.
+%
+After analysing the resulting messages, we can determine if this method
+did result in a set of messages with valuable information.
+
+This proposal also has the objective of increasing the source of information
+of the project developed by \cite{campiolo2013}, that proposed a similar method
+and framework that extracts network security threats posts on Twitter.
+
+%-----------------------------------------------------------------------------%
+\section{Work Plan and Schedule} \label{sec:workplan}
+
+In this section we present the work plan and schedule for this project. The
+tasks that will be performed in order to accomplish the objectives described on
+section \ref{sec:objectives} are:
+
+\begin{enumerate}
+    \item{Develop message extractor.}
+    \item{Develop crawlers.}
+    \item{Select channels.}
+    \item{Extract messages.}
+    \item{Improve filters.}
+    \item{Improve grouping module.}
+    \item{Improve the visibility module.}
+    \item{Determine if messages extracted from IRC channels are meaningful.}
+\end{enumerate}
+
+Table \ref{table:schedule} presents the schedule proposed for the project. Week
+1 starts on September 22, and week 9 on November's 17. The
+following subsections explains in details some of the above tasks.
+
+\begin{center}
+    \begin{table}
+        \resizebox{\linewidth}{!}{
+        \begin{tabular}{ | c | c | c | c | c | c | c | c | c | c | }
+            \hline
+            \textbf{Task} & \textbf{Week 1} & \textbf{Week 2} & \textbf{Week 3} &  %
+            \textbf{Week 4} & \textbf{Week 5} & \textbf{Week 6} & \textbf{Week 7} & %
+            \textbf{Week 8} & \textbf{Week 9}\\
+            \hline
+            Task 01 & X & X & X &   &   &   &   &   &  \\
+            \hline
+            Task 02 &   & X & X &   &   &   &   &   &  \\
+            \hline
+            Task 03 &   &   & X & X &   &   &   &   &  \\
+            \hline
+            Task 04 &   &   & X & X & X & X & X &   &  \\
+            \hline
+            Task 05 &   &   &   &   & X & X &   &   &  \\
+            \hline
+            Task 06 &   &   &   &   &   & X & X &   &  \\
+            \hline
+            Task 07 &   &   &   &   &   &   & X & X &  \\
+            \hline
+            Task 08 &   &   &   &   &   &   &   & X & X\\
+            \hline
+        \end{tabular}}
+        \caption{Schedule.}
+        \label{table:schedule}
+    \end{table}
+\end{center}
+
+\subsection{Message Extractor} \label{subsec:extractor}
+
+The purpose of this module is to extract messages from channels on the IRC
+network. This is the first task that'll be performed on the project since it
+is essential to the achievment of it's goals.
+%
+Here we will use the ruby gem, Cinch, to extract and persist messages from
+IRC channels. By performing this task, we will be able to acknowledge which
+information is possible to retrieve from IRC messages.
+
+By the end of week 3, we expect to be able to retrieve messages that posses
+the keywords that we will define on the channels selected by the crawlers
+described on the nex subsection.
+
+\subsection{Crawlers and Selecting Channels}
+
+IRC networks are composed of various servers, which if many channels that
+users can join and chat. In order to analyze messages, we first need to
+select a group of channels that we're interested in monitoring.
+%
+For this, we'll develop a couple of crawlers that will go through channels
+searching for keywords, both on the description and on user messages, and
+select the channels that are candidate of containing network security threats
+messages.
+%
+The next section describes this crawling process.
+
+Extracting messages and tasks related to filter and grouping will follow
+the methodoly defined by \cite{campiolo2013}, with some modifications on the
+relevancy decision since IRC messages aren't limited to 160 characteres as
+Twitter's posts.
+
+
+%-----------------------------------------------------------------------------%
+\section{Material and Methods} \label{sec:methods}
+
+On this section we present the material and methods to be used to develop the
+solution being proposed.
+%
+The material to be used consists of a dedicated virtual machine that'll be
+used for hosting the application to be developed. This machine will run a
+Linux based operating system and needs to be connected to the internet.
+%
+The framework to be used to extract messages from the IRC network is a
+Ruby gem called Cinch\footnote{Cinch homepage: %
+\url{https://github.com/cinchrb/cinch}}.
+%
+For the outputs of the application, we will use CSV and YAML formats with
+the extracted messages and additional information.
+
+The methodology we propose is divided into an crawling stage, an extraction
+stage, a filtering stage, a grouping stage and a visibility stage.
+% Crawling stage
+In order to extract messages from IRC, we first need to select which servers
+and channels we'll monitor. With that in mind, we propose the use of a
+metodology similar to what \cite{michels2013} did on his master
+thesis. The method consist of using a Crawler module, composed of two crawlers,
+to detect channels that are worth monitoring.
+%
+The first Crawler, the Topic Crawler, goes through the listing of each channel
+and perform a keyword analysis on their description. As a result, we get a list
+of channels that possibly address network security topics.
+%
+The second Crawler, the Channel Crawler, does a similar work on the channels
+resulting from the previous listing, but oberserving conversations instead of
+just reading the description. The idea is to have se Channel Crawler analysing
+messages for a short period of time in order to detect conversations that
+address the topic of network security. If a keyword is detected, the channel
+will be flagged and the crawler continues to the next.
+%
+This two Crawling process will result in a listing of interesting
+servers and channels to be monitored on the following stages. This list
+is to be reviewed mannualy in order to remove channels judged unninteresting.
+
+% Monitoring stage
+Next comes the monitoring stage. On this stage, each channel resulting from the
+crawling stage will have a bot monitoring all conversation within it while
+looking for a set of keywords (e.g., security, virus, exploit). Messages
+captured will be stored on a database. The data model to be used is still
+to be decided.
+% Other stages
+The other stages, such as filtering and grouping will be adaptations of the
+architecture presented by \cite{campiolo2013}. On the next section we present
+how we plan to analyse the results to be obtained.
+
+%-----------------------------------------------------------------------------%
+\section{Result Analysis} \label{sec:result}
+
+In order to analyze if the methods described on section \ref{sec:methods}
+answer the research question presented on section \ref{sec:objectives}, we'll
+first take a look at the number of messages defined as important on the end of
+the process.
+%
+If our filters don't capture any message on the time period of our experiment,
+we'll assume that IRC doesn't provide a good source of network security threats
+related information.
+
+Next, we'll analyse some of the messages defined as important on the end of the
+process to see if they contain relevant information concerning network security
+threats.
+%
+We expect to find a goog number of messages with relevant information on them.
+
+\bibliographystyle{sbc}
+\bibliography{paper}
+\end{document}
