@@ -29,27 +29,145 @@
 
 \maketitle
 
-\begin{abstract}
-  Abstract goes here.
+\begin{resumo}
+  Resumo.
 
-\textbf{Keywords:} keywords, go, here.
+\textbf{Palavras chave:} keywords, go, here.
+
+\end{resumo}
+
+\begin{abstract}
+  Abstract.
+
+\textbf{Palavras chave:} keywords, go, here.
 
 \end{abstract}
 
 %-----------------------------------------------------------------------------%
 \section{Introdução} \label{sec:intro}
 
-Escreva a instrodução aqui \cite{campiolo2013}. 
+Introdução será escrita por último.
+
+%-----------------------------------------------------------------------------%
+\section{Trabalhos Relacionados} \label{sec:rel}
+
+%TODO Internet Relay Chat deveria permanecer em itálico?
+Nesta seção, apresentamos alguns trabalhos relacionados. Os trabalhos são
+divididos em dois tipos. O primeiro consiste em trabalhos que procuram usar fontes de
+dados abertas para detectar alertas de problemas de segurança em redes de
+computadores. O segundo tipo consiste em trabalhos que buscam realizar algum
+tipo de investigação, geralmente em busca de atividades criminosas, em canais do
+\textit{Internet Relay Chat} (IRC).
+
+\cite{santos2013} apresentaram um método de extração de notificações de
+segurança de redes de computadores a partir de mensagens postadas na rede de
+\textit{microblogging}, Twitter.
+%
+A metodologia apresentada nesse trabalho, consiste em coletar mensagens
+postadas no Twitter e processar essas mensagens usando as técnicas de
+agrupamento e classificação. Na seção \ref{sec:metod} descrevemos essas duas
+técnicas, uma vez que utilizaremos as mesmas neste trabalho.
+%
+A a combinação dessas técnicas obteve uma precisão de 92\% de mensagens
+que continham tópicos relacionados à segurança de redes, e 50\% que
+representavam potenciais alertas.
+
+No que diz respeito ao IRC, a maioria dos trabalhos encontrados por nós
+realizam uma análise \textit{post mortem} de logs contendo as mensagens de
+determinado canal.
+%
+Existem poucos trabalhos que buscam fazer algum tipo de análise em tempo real,
+ou quase em tempo real, de mensagens na rede.
+%
+Em sua dissertação de mestrado, \cite{brown2007} propõe uma arquitetura para
+uma ferramenta de investigação automática no IRC. A arquitetura proposta
+consiste em cinco módulos: (\textit{i}) o módulo de coleta responsável por
+capturar as mensagens e realizar um \textit{parse} em busca de datas, nomes
+de usuário e \textit{hyperlinks};
+%
+(\textit{ii}) o módulo de armazenamento
+salva as mensagens e eventos, como entrada e saída de usuários em canais, em
+um banco de dados;
+%
+(\textit{iii}) o módulo de análise verifica se existem referências à atividades
+criminosas nas mensagens;
+%
+(\textit{iv}) o módulo de alerta recupera os dados do módulo de análise e envia,
+por correio eletrônico e mensagens de texto no celular, para as autoridades responsáveis;
+%
+e por fim, (\textit{v}) o módulo localizador tenta rastrear a origem dos
+usuários remetentes das mensagens. Para tanto, ele utiliza o comando \textbf{WHOIS} do
+protocolo do IRC. No entanto, Brown avisa que esse módulo pode não
+retornar informação relevante.
+%
+A análise das mensagens é realizada utilizando as técnicas de análise de
+palavras chave e análise de bancos de dados \cite{brown2007}.
+%
+Essa abordagem, no entanto, requer que o investigador saiba com antecedência
+quais canais monitorar.
+
+\cite{michels2012} propôs uma ferramenta de análise em tempo real de
+conversas no IRC. Nesse trabalho difere da abordagem dos demais trabalhos
+encontrados na literatura pois adiciona um módulo de \textit{crawlers} para
+auxiliar o investigador a encontrar os canais a serem monitorados.
+%
+Esse módulo funciona em duas etapas. A primeira consiste no que ele chama de
+\textit{topic crawler}, ele realiza a análise de palavras chave nos nomes e
+nas descrições de todos os canais de determinado servidor. A seguir, um
+\textit{channel crawler} entra nos canais identificados e escuta as conversas
+por um curto período de tempo e realiza a análise de palavras chaves de forma
+a identificar com maior precisão se o canal deve ser marcado para revisão do
+investigador.
+
+A análise das mensagens foi realizada de duas formas. Primeiramente era
+realizada tanto a análise de palavras chave por si só, quanto a análise de
+palavras chave combinada com a análise de \textbf{\textit{Part of Speech
+Tagging} (POST)} \cite{stanford}. A análise POST quebra a frase em partes e
+define as classes gramaticais de cada parte. No entanto, Michels
+observou que o uso desse tipo de análise não produz diferenças significativas,
+se comparado com o uso de análise de palavras chave sozinho.
+
+O segundo tipo de análise foi a análise de tópico quase em tempo real.
+Michels implementou o método de análise \textit{classic frequency}
+\cite{gainaru2010} pois ele é facilmente adaptável para uma ferramenta que analisa
+dados em tempo real.
+%
+Michels ressalta que no geral, análises de tópico são realizadas em logs
+após a coleta dos dados. Para simular esse efeito, ele definiu um limite de
+mensagens de forma que a análise de tópicos só era realizada após o módulo de
+coleta ter coletado esse limite.
+%
+A conclusão foi de que o tópico de análise não funciona bem porque as
+ferramentas utilizadas para \textit{stemming} (processo de reduzir uma
+palavra derivada à palavra raiz que a originou), \textit{thesaurus}, etc.
+não estão preparadas para analisar jargões e gírios, comuns quando se trata
+de comunicação através da internet.
+
+Na seção \ref{sec:metod}, apresentamos a metodologia adotada por nós, que
+é uma combinação da metodologia utilizada por \cite{santos2013} e
+\cite{michels2012}.
+%
+Descartamos o uso da análise \textbf{POST} devido à complexidade de adicionar
+a mesma na ferramenta proposta por nós em relação ao baixo benefício observado
+por Michels.
+
+
 
 %-----------------------------------------------------------------------------%
 \section{Metodologia} \label{sec:metod}
 
-Escreva a Metodologia aqui.
+Escreva a Metodologia aqui. (usamos apenas canais que não pedem senha)
 
 %-----------------------------------------------------------------------------%
 \section{Resultados} \label{sec:res}
 
 Escreva os resultados aqui.
+
+%-----------------------------------------------------------------------------%
+\section{Discussão} \label{sec:disc}
+
+Escreva os resultados aqui.
+
 
 %-----------------------------------------------------------------------------%
 \section{Conclusão e Trabalhos Futuros} \label{sec: concl}
