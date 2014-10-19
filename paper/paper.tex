@@ -156,7 +156,57 @@ por Michels.
 %-----------------------------------------------------------------------------%
 \section{Metodologia} \label{sec:metod}
 
-Escreva a Metodologia aqui. (usamos apenas canais que não pedem senha)
+Nesta seção, nós propomos uma metodologia para extrair e evidenciar alertas
+relacionados a segurança de redes de computadores em canais do IRC. A
+metodologia consiste em uma junção da metodologia utilizada para extrair
+alertas de segurança de redes sociais proposta em\cite{santos2013} e na
+metodologia para análise de textos em tempo real em conversas do IRC proposta
+por \cite{michels2012}.
+
+\cite{santos2012, campiolo2013} comprovaram que existem mensagens sobre ameaças
+computacionais postadas no Twitter.
+%
+Apesar do IRC não ser mais a principal ferramenta de chat, ela
+sobreviveu ao uso do tempo desde o final dos anos 80, e continua muito
+utilizada por grupos de \textit{hackers} e empresas que trabalham com
+tecnologia da informação. Em seu trabalho, por exemplo, \cite{michels2012}
+observa que empresas podem detectar falhar em seus produtos mais rapidamente
+se monitorarem alguns canais no IRC.
+
+Nesse contexto, definimos duas questões de pesquisa para para extrair
+efetivamente notificações de segurança obtidas de conversas em canais do IRC:
+
+\begin{itemize}
+	\item[\textbf{Q1}] O IRC consiste em uma fonte de informação relevante para se
+	extrair alertas de segurança em redes de computadores?
+	\item[\textbf{Q2}] É possível extrair e analisar informação relevante sobre alerta
+	de segurança em redes de computadores de canais do IRC em tempo real, ou 
+	quase real?
+\end{itemize}
+
+O método proposto por nós é composto por cinco etapas:
+
+\begin{enumerate}
+
+	\item Obter uma lista de canais que possam conter informação relevante.
+	\item Obter as mensagens de segurança trocadas nos canais.
+	\item Filtrar mensagens: remover mensagens que fogem ao contexto.
+	\item Agrupar por similaridade: relacionar mensagens que relatam um mesmo
+	assunto.
+	\item Gerar lista de tópicos mais relevantes: detectar quais são os
+	principais tópicos abordados nos canais.
+\end{enumerate}
+
+As subseções a seguir detalham cada uma dessas cinco etapas.
+
+\subsection{Obter lista de canais}
+
+(Canais com senha foram ignorados. A abordagem foi mista, \textit{crawlers}
+mais seleção manual de alguns canais.) ...
+
+\subsection{Obter mensagens}
+
+...
 
 %-----------------------------------------------------------------------------%
 \section{Resultados} \label{sec:res}
@@ -172,7 +222,7 @@ Escreva os resultados aqui.
 %-----------------------------------------------------------------------------%
 \section{Conclusão e Trabalhos Futuros} \label{sec: concl}
 
-Escreva a conclusão assim.
+Escreva a conclusão aqui.
 
 \bibliographystyle{sbc}
 \bibliography{paper}
