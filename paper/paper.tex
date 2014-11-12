@@ -55,10 +55,9 @@ Nesta seção, apresentamos alguns trabalhos relacionados. Os trabalhos são
 divididos em dois tipos. O primeiro consiste em trabalhos que procuram usar fontes de
 dados abertas para detectar alertas de problemas de segurança em redes de
 computadores. O segundo tipo consiste em trabalhos que buscam realizar algum
-tipo de investigação, geralmente em busca de atividades criminosas, em canais do
-\textit{Internet Relay Chat} (IRC).
+tipo de investigação em ferramentas de chat.
 
-\cite{santos2013} apresentaram um método de extração de notificações de
+\citeonline{santos2013} apresentaram um método de extração de notificações de
 segurança de redes de computadores a partir de mensagens postadas na rede de
 \textit{microblogging}, Twitter.
 %
@@ -67,7 +66,7 @@ postadas no Twitter e processar essas mensagens usando as técnicas de
 agrupamento e classificação. Na seção \ref{sec:metod} descrevemos essas duas
 técnicas, uma vez que utilizaremos as mesmas neste trabalho.
 %
-A a combinação dessas técnicas obteve uma precisão de 92\% de mensagens
+A combinação dessas técnicas obteve uma precisão de 92\% de mensagens
 que continham tópicos relacionados à segurança de redes, e 50\% que
 representavam potenciais alertas.
 
@@ -78,7 +77,7 @@ determinado canal.
 Existem poucos trabalhos que buscam fazer algum tipo de análise em tempo real,
 ou quase em tempo real, de mensagens na rede.
 %
-Em sua dissertação de mestrado, \cite{brown2007} propõe uma arquitetura para
+Em sua dissertação de mestrado, \citeonline{brown2007} propõe uma arquitetura para
 uma ferramenta de investigação automática no IRC. A arquitetura proposta
 consiste em cinco módulos: (\textit{i}) o módulo de coleta responsável por
 capturar as mensagens e realizar um \textit{parse} em busca de datas, nomes
@@ -105,8 +104,8 @@ palavras chave e análise de bancos de dados \cite{brown2007}.
 Essa abordagem, no entanto, requer que o investigador saiba com antecedência
 quais canais monitorar.
 
-\cite{michels2012} propôs uma ferramenta de análise em tempo real de
-conversas no IRC. Nesse trabalho difere da abordagem dos demais trabalhos
+\citeonline{michels2012} propôs uma ferramenta de análise em tempo real de
+conversas no IRC. Seu trabalho difere da abordagem dos demais trabalhos
 encontrados na literatura pois adiciona um módulo de \textit{crawlers} para
 auxiliar o investigador a encontrar os canais a serem monitorados.
 %
@@ -122,12 +121,12 @@ A análise das mensagens foi realizada de duas formas. Primeiramente era
 realizada tanto a análise de palavras chave por si só, quanto a análise de
 palavras chave combinada com a análise de \textbf{\textit{Part of Speech
 Tagging} (POST)} \cite{stanford}. A análise POST quebra a frase em partes e
-define as classes gramaticais de cada parte. No entanto, Michels
+define as classes gramaticais de cada parte. No entanto, \citeonline{michels2012}
 observou que o uso desse tipo de análise não produz diferenças significativas,
 se comparado com o uso de análise de palavras chave sozinho.
 
 O segundo tipo de análise foi a análise de tópico quase em tempo real.
-Michels implementou o método de análise \textit{classic frequency}
+\citeonline{michels2012} implementou o método de análise \textit{classic frequency}
 \cite{gainaru2010} pois ele é facilmente adaptável para uma ferramenta que analisa
 dados em tempo real.
 %
@@ -142,13 +141,52 @@ palavra derivada à palavra raiz que a originou), \textit{thesaurus}, etc.
 não estão preparadas para analisar jargões e gírios, comuns quando se trata
 de comunicação através da internet.
 
+\begin{figure}[ht]
+\centering
+\includegraphics[width=.6\textwidth]{images/gainaru_architecture.png}
+\caption{Arquitetura do \textit{toolkit} apresentado por \cite{gainaru2010}}
+\label{fig:gainaru-architecture}
+\end{figure}
+
+\citeonline{gainaru2010} afirmam que as ferramentas
+de análise de texto não levam em consideração a estrutura temporal que
+fontes de dados baseadas em conversas de chat possuem. Eles então apresentaram
+um \textit{toolkit} para análise automática de conversas em chats.
+%
+A \ref{fig:gainaru-architecture} apresenta a arquitetura proposta por por eles.
+Essa arquitetura é dividida em quatro módulos.
+
+O primeiro, realiza alguns procedimentos que atuam como pré-requisitos para
+a análise do texto. Esses procedimentos são:
+%
+(\textit{i}) \textit{tokenização}, que consiste em separar as frases em
+palavras individuais;
+%
+(\textit{ii}) eliminação de palavras sem relevância, por exemplo
+\textit{emoticons} como ':)';
+%
+(\textit{iii}) \textit{word stemming}, que consiste em extrair a forma raiz
+de uma palavra;
+%
+e por último, (\textit{iv}) a análise POST citada anteriormente.
+%
+O segundo módulo busca extrair um ou mais tópicos de uma conversa. Para
+tanto, eles realizam uma análise de frequência chamada de \textit{classic
+frequency}, e agrupam palavras que são sinônimos. 
+%
+O resultado é considerado a lista de tópicos da conversa.
+%
+O terceiro módulo identifica correntes léxicas no texto. Uma corrente
+léxica é uma lista de palavras que captura uma porção da estrutura 
+coerente  do texto.
+%
+O quarto e último módulo analisa o texto em busca de correferências de
+termos não verbais.
+
 Na seção \ref{sec:metod}, apresentamos a metodologia adotada por nós, que
 é uma combinação da metodologia utilizada por \cite{santos2013} e
-\cite{michels2012}.
-%
-Descartamos o uso da análise \textbf{POST} devido à complexidade de adicionar
-a mesma na ferramenta proposta por nós em relação ao baixo benefício observado
-por Michels.
+\cite{michels2012} e que utiliza algumas técnicas apresentadas por
+\cite{gainaru2010}.
 
 
 
@@ -158,7 +196,7 @@ por Michels.
 Nesta seção, nós propomos uma metodologia para extrair e evidenciar alertas
 relacionados a segurança de redes de computadores em canais do IRC. A
 metodologia consiste em uma junção da metodologia utilizada para extrair
-alertas de segurança de redes sociais proposta em\cite{santos2013} e na
+alertas de segurança de redes sociais proposta em \cite{santos2013} e na
 metodologia para análise de textos em tempo real em conversas do IRC proposta
 por \cite{michels2012}.
 
@@ -168,8 +206,8 @@ computacionais postadas no Twitter.
 Apesar do IRC não ser mais a principal ferramenta de chat, ela
 sobreviveu ao uso do tempo desde o final dos anos 80, e continua muito
 utilizada por grupos de \textit{hackers} e empresas que trabalham com
-tecnologia da informação. Em seu trabalho, por exemplo, \cite{michels2012}
-observa que empresas podem detectar falhar em seus produtos mais rapidamente
+tecnologia da informação. Em seu trabalho, por exemplo, \citeonline{michels2012}
+observa que empresas podem detectar falhas em seus produtos mais rapidamente
 se monitorarem alguns canais no IRC.
 
 Nesse contexto, definimos duas questões de pesquisa para para extrair
